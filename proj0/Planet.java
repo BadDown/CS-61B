@@ -45,7 +45,7 @@ public class Planet {
 	}
 
 	//Calculate the net X and Y force exerted
-	public double calcNetForceExertedByX(Planet[] allPlanets) {
+	public double calcForceExertedByX(Planet[] allPlanets) {
 		double NetForceExertedByX=0;
 		for (Planet p:allPlanets){
 			if(!this.equals(p)){
@@ -55,7 +55,7 @@ public class Planet {
 		}
 		return NetForceExertedByX;
 	}
-	public double calcNetForceExertedByY(Planet[] allPlanets) {
+	public double calcForceExertedByY(Planet[] allPlanets) {
 		double NetForceExertedByY=0;
 		for (Planet p:allPlanets){
 			if(!this.equals(p)){

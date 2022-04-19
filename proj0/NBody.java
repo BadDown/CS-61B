@@ -54,8 +54,8 @@ public class NBody {
              the entire xForces and yForces arrays are done! The difference is subtle, but the autograder will be upset
              if you call planets[0].update before you calculate xForces[1] and yForces[1].*/
             for (int k=0;k<num;k++){
-                xForces[k]=AllPlanets[k].calcNetForceExertedByX(AllPlanets);
-                yForces[k]=AllPlanets[k].calcNetForceExertedByY(AllPlanets);
+                xForces[k]=AllPlanets[k].calcForceExertedByX(AllPlanets);
+                yForces[k]=AllPlanets[k].calcForceExertedByY(AllPlanets);
             }
             for (int k=0;k<num;k++){
                 AllPlanets[k].update(dt,xForces[k],yForces[k]);
