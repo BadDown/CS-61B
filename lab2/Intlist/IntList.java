@@ -87,7 +87,7 @@ public class IntList {
         if (A==null){
             return B;
         }
-        IntList pre=A
+        IntList pre=A;
         while (pre.rest!=null){
             pre=pre.rest;
         }
