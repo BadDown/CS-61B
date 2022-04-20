@@ -82,7 +82,17 @@ public class IntList {
 
     public static IntList dcatenate(IntList A, IntList B) {
         //TODO:  fill in method
-        return null;
+        /*本来我的想法是先把A遍历完了，然后再把B一个接一个的挂上去。
+        但实际上，B也是地址值，直接将B的地址值传给A中最后一个元素.rest*/
+        if (A==null){
+            return B;
+        }
+        IntList pre=A
+        while (pre.rest!=null){
+            pre=pre.rest;
+        }
+        pre.rest=B;
+        return A;
     }
 
     /**
@@ -91,7 +101,23 @@ public class IntList {
      */
     public static IntList catenate(IntList A, IntList B) {
         //TODO:  fill in method
-        return null;
+
+
+        //我做不出来。。。
+
+
+        if(A == null){
+            return B;
+        }
+        if(A.rest == null){
+            return new IntList(A.first, B);
+        }
+        return new IntList(A.first, catenate(A.rest, B));
+
+
+
+
+
     }
 
 
