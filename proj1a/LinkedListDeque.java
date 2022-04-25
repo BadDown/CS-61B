@@ -78,10 +78,8 @@ public class LinkedListDeque<T> {
         Node getitem = sential;
         if (size != 0 && index < size) {
             for (int n = 0; n - 1 != index; n++) {
-                getitem=getitem.next;
-                if (n == index) {
-                    return getitem.item;
-                }
+                getitem=getitem.next;}
+            return getitem.item;
             }
         } else {
             return null;

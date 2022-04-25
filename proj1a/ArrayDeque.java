@@ -110,7 +110,8 @@ public class ArrayDeque<T> {
         return pre;
     }
 
-    public int Plusone(int pre) {
+    public int Plusone(int pre， int module) {
+        index %=module;
         if (pre == length-1) {
             pre = 0;
         } else {
@@ -120,33 +121,32 @@ public class ArrayDeque<T> {
     }
 
     public void grow() {
-        T[] NewArray = (T[]) new Object[length * 2];
-        int pre = Plusone(pre);
-        int newpre = length * 2 - 1;
-        for (int i = 0; i < size; i++) {
-            NewArray[newpre] = array[pre];
-            newpre = Minusone(newpre);
-            pre =  Minusone(pre);
+        T[] newArray = (T[]) new Object[length * 2];
+        int ptr1 = front;
+        int ptr2 = length;
+        while (ptr1 != rear) {
+            newArray[ptr2] = array[ptr1];
+            ptr1 = plusOne(ptr1, length);
+            ptr2 = plusOne(ptr2, length * 2);
         }
-        length = 2 * length;
-        front = newpre;
-        rear = length - 1;
-        array = NewArray;
-
+        front = length;
+        rear = ptr2;
+        array = newArray;
+        length *= 2;
     }
 
     public void shrink() {
-        T[] NewArray = (T[]) new Object[length/2];
-        int pre = Plusone(pre);
-        int newpre = length / 2 - 1;
-        for (int i = 0; i < size; i++) {
-           NewArray[newpre] = array[pre];
-           newpre = Minusone(newpre);
-           pre = Minusone(pre);
+        T[] newArray = (T[]) new Object[length / 2];
+        int ptr1 = front;
+        int ptr2 = length / 4;
+        while (ptr1 != rear) {
+            newArray[ptr2] = array[ptr1];
+            ptr1 = plusOne(ptr1, length);
+            ptr2 = plusOne(ptr2, length / 2);
         }
-        length = length / 2;
-        front = newpre;
-        rear = length - 1;
-        array = NewArray;
+        front = length / 4;
+        rear = ptr2;
+        array = newArray;
+        length /= 2;
     }
 }
