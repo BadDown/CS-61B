@@ -256,5 +256,10 @@ public class IntList {
         out.format(")");
         return out.toString();
     }
+
+    public static void main(String[] args) {
+        IntList l1=new IntList(1,null);
+        IntList l2=l1;
+    }
 }
 
