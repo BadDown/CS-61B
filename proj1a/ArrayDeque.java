@@ -49,7 +49,7 @@ public class ArrayDeque<T> {
     }
 
     public boolean isEmpty() {
-        return !size;
+        return size == 0;
     }
 
     public int size() {
@@ -91,7 +91,7 @@ public class ArrayDeque<T> {
     }
 
     public T get(int index) {
-        if (size || index >= size) {
+        if (size == 0 || index >= size) {
             return null;
         }
         int pre = front;
@@ -120,7 +120,7 @@ public class ArrayDeque<T> {
     }
 
     public void grow() {
-        T[] NewArray = (T[]) Object[length * 2];
+        T[] NewArray = (T[]) new Object[length * 2];
         int pre = Plusone(pre);
         int newpre = length * 2 - 1;
         for (int i = 0; i < size; i++) {
@@ -136,7 +136,7 @@ public class ArrayDeque<T> {
     }
 
     public void shrink() {
-        T[] NewArray = (T[]) Object[length/2];
+        T[] NewArray = (T[]) new Object[length/2];
         int pre = Plusone(pre);
         int newpre = length / 2 - 1;
         for (int i = 0; i < size; i++) {
