@@ -110,8 +110,8 @@ public class ArrayDeque<T> {
         return pre;
     }
 
-    public int Plusone(int pre， int module) {
-        index %=module;
+    public int Plusone(int pre,int module) {
+        pre %=module;
         if (pre == length-1) {
             pre = 0;
         } else {
@@ -126,8 +126,8 @@ public class ArrayDeque<T> {
         int ptr2 = length;
         while (ptr1 != rear) {
             newArray[ptr2] = array[ptr1];
-            ptr1 = plusOne(ptr1, length);
-            ptr2 = plusOne(ptr2, length * 2);
+            ptr1 = Plusone(ptr1, length);
+            ptr2 = Plusone(ptr2, length * 2);
         }
         front = length;
         rear = ptr2;
@@ -141,8 +141,8 @@ public class ArrayDeque<T> {
         int ptr2 = length / 4;
         while (ptr1 != rear) {
             newArray[ptr2] = array[ptr1];
-            ptr1 = plusOne(ptr1, length);
-            ptr2 = plusOne(ptr2, length / 2);
+            ptr1 = Plusone(ptr1, length);
+            ptr2 = Plusone(ptr2, length / 2);
         }
         front = length / 4;
         rear = ptr2;

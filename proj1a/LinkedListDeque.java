@@ -80,8 +80,7 @@ public class LinkedListDeque<T> {
             for (int n = 0; n - 1 != index; n++) {
                 getitem=getitem.next;}
             return getitem.item;
-            }
-        } else {
+            } else {
             return null;
         }
     }
