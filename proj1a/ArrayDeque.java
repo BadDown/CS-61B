@@ -43,7 +43,7 @@ public class ArrayDeque<T> {
         if (size == length - 1) {
             grow();
         }
-        rear = Plusone(rear);
+        rear = Plusone(rear,length);
         array[rear] = item;
         size++;
     }
@@ -72,7 +72,7 @@ public class ArrayDeque<T> {
             shrink();
         }
         T ret = array[front];
-        front = Plusone(front);
+        front = Plusone(front,length);
         size--;
         return ret;
     }
