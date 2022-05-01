@@ -32,8 +32,8 @@ public class LinkedListDeque<T> {
     /*construtor for LinkedListDeque*/
     public LinkedListDeque() {
         size = 0;
-        frontsentinel = new Node(null,null);
-        rearsentinel = new Node(null,null);
+        frontsentinel = new Node(null, null);
+        rearsentinel = new Node(null, null);
         frontsentinel.next = rearsentinel;
         frontsentinel.pre = rearsentinel;
         rearsentinel.next = frontsentinel;

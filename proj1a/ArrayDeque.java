@@ -35,7 +35,7 @@ public class ArrayDeque<T> {
         if (length <= 16) {
             return;
         }
-        if (length == size){
+        if (length == size) {
             resize();
         }
         if (size <= (length + 3) * 0.25) {
