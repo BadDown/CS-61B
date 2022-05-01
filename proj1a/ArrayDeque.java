@@ -14,7 +14,7 @@ public class ArrayDeque<T> {
     public ArrayDeque() {
         size = 0;
         length = 8;
-        array = (T[]) Object[length];
+        array = (T[]) new Object[length];
         front = 0;
         rear = 0;
     }
@@ -46,17 +46,17 @@ public class ArrayDeque<T> {
     /*resize the array*/
     private void resize() {
         if (size == length) {
-            T[] newArray = (T[]) Object[length * 2];
+            T[] newArray = (T[]) new Object[length * 2];
             System.arraycopy(array,0,newArray,0,size);
             front = 0;
             rear = size - 1;
             length = length * 2;
             array = newArray;
         } else {
-            T[] newArray = (T[]) Object[length / 2];
+            T[] newArray = (T[]) new Object[length / 2];
             System.arraycopy(array,0,newArray,0,size);
             front = 0;
-            length = length / 2
+            length = length / 2;
             rear = size - 1;
             array = newArray;
         }
@@ -81,7 +81,7 @@ public class ArrayDeque<T> {
     }
 
     /*add an item to the front of the deque*/
-    public void addFitst(T item) {
+    public void addFirst(T item) {
         checkArray();
         array[front] = item;
         size++;

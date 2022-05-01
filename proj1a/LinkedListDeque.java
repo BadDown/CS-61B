@@ -41,10 +41,11 @@ public class LinkedListDeque<T> {
     }
 
     /*add an item to the front of the deque*/
-    public void addFitst(T item) {
+    public void addFirst(T item) {
         Node newitem = new Node(front_sentinel,item,front_sentinel.next);
         front_sentinel.next.pre = newitem;
         front_sentinel.next = newitem;
+        size++;
     }
 
     /*add an item to the back of the deque*/
@@ -52,6 +53,7 @@ public class LinkedListDeque<T> {
         Node newitem = new Node(rear_sentinel.pre,item,rear_sentinel);
         rear_sentinel.pre.next = newitem;
         rear_sentinel.pre = newitem;
+        size++;
     }
 
     /*return true if deque is empty*/
@@ -81,6 +83,7 @@ public class LinkedListDeque<T> {
         Node pre = front_sentinel.next;
         front_sentinel.next = pre.next;
         pre.next.pre = front_sentinel;
+        size--;
         return pre.item;
     }
 
@@ -92,6 +95,7 @@ public class LinkedListDeque<T> {
         Node pre = rear_sentinel.pre;
         rear_sentinel.pre = pre.pre;
         pre.pre.next = rear_sentinel;
+        size--;
         return pre.item;
     }
 
