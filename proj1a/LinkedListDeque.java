@@ -9,14 +9,14 @@ public class LinkedListDeque<T> {
         private T item;
 
         /*constructor for Node.*/
-        public Node(Node ppre,T iitem,Node nnext) {
+        public Node(Node ppre, T iitem, Node nnext) {
             pre = ppre;
             item = iitem;
             next = nnext;
         }
 
         /*construtor for the sentinel node*/
-        public Node(Node ppre,Node nnext) {
+        public Node(Node ppre, Node nnext) {
             pre = ppre;
             next = nnext;
         }
@@ -25,34 +25,34 @@ public class LinkedListDeque<T> {
     /*the number of saving item in the Deque*/
     private int size;
     /*point to the front sentinel node*/
-    private Node front_sentinel;
+    private Node frontsentinel;
     /*point to the rear sentinel node*/
-    private Node rear_sentinel;
+    private Node rearsentinel;
 
     /*construtor for LinkedListDeque*/
     public LinkedListDeque() {
         size = 0;
-        front_sentinel = new Node(null,null);
-        rear_sentinel = new Node(null,null);
-        front_sentinel.next = rear_sentinel;
-        front_sentinel.pre = rear_sentinel;
-        rear_sentinel.next = front_sentinel;
-        rear_sentinel.pre = front_sentinel;
+        frontsentinel = new Node(null,null);
+        rearsentinel = new Node(null,null);
+        frontsentinel.next = rearsentinel;
+        frontsentinel.pre = rearsentinel;
+        rearsentinel.next = frontsentinel;
+        rearsentinel.pre = frontsentinel;
     }
 
     /*add an item to the front of the deque*/
     public void addFirst(T item) {
-        Node newitem = new Node(front_sentinel,item,front_sentinel.next);
-        front_sentinel.next.pre = newitem;
-        front_sentinel.next = newitem;
+        Node newitem = new Node(frontsentinel, item, frontsentinel.next);
+        frontsentinel.next.pre = newitem;
+        frontsentinel.next = newitem;
         size++;
     }
 
     /*add an item to the back of the deque*/
     public void addLast(T item) {
-        Node newitem = new Node(rear_sentinel.pre,item,rear_sentinel);
-        rear_sentinel.pre.next = newitem;
-        rear_sentinel.pre = newitem;
+        Node newitem = new Node(rearsentinel.pre, item, rearsentinel);
+        rearsentinel.pre.next = newitem;
+        rearsentinel.pre = newitem;
         size++;
     }
 
@@ -68,7 +68,7 @@ public class LinkedListDeque<T> {
 
     /*print the items in the deque from first to last*/
     public void printDeque() {
-        Node pre = front_sentinel.next;
+        Node pre = frontsentinel.next;
         for (int i = 0; i < size; i++) {
             System.out.print(pre.item + " ");
             pre = pre.next;
@@ -80,9 +80,9 @@ public class LinkedListDeque<T> {
         if (size == 0) {
             return null;
         }
-        Node pre = front_sentinel.next;
-        front_sentinel.next = pre.next;
-        pre.next.pre = front_sentinel;
+        Node pre = frontsentinel.next;
+        frontsentinel.next = pre.next;
+        pre.next.pre = frontsentinel;
         size--;
         return pre.item;
     }
@@ -92,9 +92,9 @@ public class LinkedListDeque<T> {
         if (size == 0) {
             return null;
         }
-        Node pre = rear_sentinel.pre;
-        rear_sentinel.pre = pre.pre;
-        pre.pre.next = rear_sentinel;
+        Node pre = rearsentinel.pre;
+        rearsentinel.pre = pre.pre;
+        pre.pre.next = rearsentinel;
         size--;
         return pre.item;
     }
@@ -102,7 +102,7 @@ public class LinkedListDeque<T> {
     /*get the item at the given index*/
     public T get(int index) {
         int i = 0;
-        Node pre = front_sentinel.next;
+        Node pre = frontsentinel.next;
         if (index >= size) {
             return null;
         }
@@ -115,11 +115,11 @@ public class LinkedListDeque<T> {
 
     /*get the item at the fiven index with using the recursive funtion*/
     public T getRecursive(int index) {
-        Node pre = front_sentinel.next;
+        Node pre = frontsentinel.next;
         if (index >= size) {
             return null;
         }
-        if(index == 0) {
+        if (index == 0) {
             return pre.item;
         } else {
             pre = pre.next;

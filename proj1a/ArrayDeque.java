@@ -35,10 +35,10 @@ public class ArrayDeque<T> {
         if (length <= 16) {
             return;
         }
-         {
+        if (length == size){
             resize();
         }
-        if (size <= (length+3) * 0.25) {
+        if (size <= (length + 3) * 0.25) {
             resize();
         }
     }
@@ -47,14 +47,14 @@ public class ArrayDeque<T> {
     private void resize() {
         if (size == length) {
             T[] newArray = (T[]) new Object[length * 2];
-            System.arraycopy(array,0,newArray,0,size);
+            System.arraycopy(array, 0, newArray, 0, size);
             front = 0;
             rear = size - 1;
             length = length * 2;
             array = newArray;
         } else {
             T[] newArray = (T[]) new Object[length / 2];
-            System.arraycopy(array,0,newArray,0,size);
+            System.arraycopy(array, 0, newArray, 0, size);
             front = 0;
             length = length / 2;
             rear = size - 1;
@@ -141,7 +141,7 @@ public class ArrayDeque<T> {
 
     /*get the item at the given index*/
     public T get(int index) {
-        if (index >=size) {
+        if (index >= size) {
             return null;
         }
         int pre = minusOne(front);
