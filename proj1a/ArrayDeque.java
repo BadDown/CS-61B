@@ -146,7 +146,7 @@ public class ArrayDeque<T> {
         }
         int pre = minusOne(front);
         for (int i = 0; i < index; i++) {
-            pre = minusOne(pre);
+            pre = plusOne(pre);
         }
         return array[pre];
     }

@@ -115,16 +115,17 @@ public class LinkedListDeque<T> {
 
     /*get the item at the fiven index with using the recursive funtion*/
     public T getRecursive(int index) {
-        Node pre = frontsentinel.next;
         if (index >= size) {
             return null;
         }
+        return getRecursiveHelp(frontsentinel.next, index)
+    }
+
+    private getRecursiveHelp(Node pre, int index) {
         if (index == 0) {
             return pre.item;
         } else {
-            pre = pre.next;
-            return getRecursive(index - 1);
+            return getRecursiveHelp(pre.next, index - 1);
         }
     }
-
 }
