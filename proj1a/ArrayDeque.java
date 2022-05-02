@@ -52,9 +52,9 @@ public class ArrayDeque<T> {
                 newArray[i] = array[pre];
                 pre = plusOne(pre);
             }
-            front = length - 1;
-            rear = size - 1;
             length = length * 2;
+            rear = size - 1;
+            front = length - 1;
             array = newArray;
         } else {
             T[] newArray = (T[]) new Object[length / 2];
@@ -62,8 +62,8 @@ public class ArrayDeque<T> {
                 newArray[i] = array[pre];
                 pre = plusOne(pre);
             }
-            front = length - 1;
             length = length / 2;
+            front = length - 1;
             rear = size - 1;
             array = newArray;
         }
