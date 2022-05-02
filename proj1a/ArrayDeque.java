@@ -151,7 +151,7 @@ public class ArrayDeque<T> {
         if (index >= size) {
             return null;
         }
-        int pre = minusOne(front);
+        int pre = plusOne(front);
         for (int i = 0; i < index; i++) {
             pre = plusOne(pre);
         }
