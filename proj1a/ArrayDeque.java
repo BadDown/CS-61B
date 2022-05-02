@@ -52,7 +52,7 @@ public class ArrayDeque<T> {
                 newArray[i] = array[pre];
                 pre = plusOne(pre);
             }
-            front = 0;
+            front = length - 1;
             rear = size - 1;
             length = length * 2;
             array = newArray;
@@ -62,7 +62,7 @@ public class ArrayDeque<T> {
                 newArray[i] = array[pre];
                 pre = plusOne(pre);
             }
-            front = 0;
+            front = length - 1;
             length = length / 2;
             rear = size - 1;
             array = newArray;
