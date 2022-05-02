@@ -32,7 +32,7 @@ public class ArrayDeque<T> {
 
     /*Check if the array needs to be resized*/
     private void checkArray() {
-        if (length <= 16) {
+        if (length <= 16 && length != size) {
             return;
         }
         if (length == size) {
