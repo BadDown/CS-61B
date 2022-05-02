@@ -45,16 +45,23 @@ public class ArrayDeque<T> {
 
     /*resize the array*/
     private void resize() {
+        int pre = plusOne(front);
         if (size == length) {
             T[] newArray = (T[]) new Object[length * 2];
-            System.arraycopy(array, 0, newArray, 0, size);
+            for (int i = 0; i < size; i++) {
+                newArray[i] = array[pre];
+                pre = plusOne(pre);
+            }
             front = 0;
             rear = size - 1;
             length = length * 2;
             array = newArray;
         } else {
             T[] newArray = (T[]) new Object[length / 2];
-            System.arraycopy(array, 0, newArray, 0, size);
+            for (int i = 0; i < size; i++) {
+                newArray[i] = array[pre];
+                pre = plusOne(pre);
+            }
             front = 0;
             length = length / 2;
             rear = size - 1;
