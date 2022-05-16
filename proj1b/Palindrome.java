@@ -43,6 +43,9 @@ public class Palindrome {
      */
     public boolean isPalindrome(String word, CharacterComparator cc) {
         Deque<Character> d = wordToDeque(word);
+        if (word.length() == 1 || word.length() == 0) {
+            return true;
+        }
         for (int i = 0; i < d.size() / 2; i++) {
             if (!cc.equalChars(d.removeFirst(), d.removeLast())) {
                 return false;
