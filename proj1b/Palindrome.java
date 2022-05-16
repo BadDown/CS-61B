@@ -1,6 +1,3 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
-
 /**
  * @author Stunoon
  * @date 2022/5/15 15:46
@@ -34,7 +31,7 @@ public class Palindrome {
     public boolean isPalindrome(String word) {
         Deque<Character> d = wordToDeque(word);
         while (d.size() > 1) {
-            if (d.getFirst() != d.getLast()) {
+            if (d.removeFirst() != d.removeLast()) {
                 return false;
             }
         }
