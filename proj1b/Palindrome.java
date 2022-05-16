@@ -1,5 +1,4 @@
 import java.util.ArrayDeque;
-import java.util.ArrayList;
 import java.util.Deque;
 
 /**
@@ -35,7 +34,7 @@ public class Palindrome {
     public boolean isPalindrome(String word) {
         Deque<Character> d = wordToDeque(word);
         while (d.size() > 1) {
-            while (d.getFirst() != d.getLast()) {
+            if (d.getFirst() != d.getLast()) {
                 return false;
             }
         }
@@ -48,7 +47,7 @@ public class Palindrome {
     public boolean isPalindrome(String word, CharacterComparator cc) {
         Deque<Character> d = wordToDeque(word);
         for (int i = 0; i < d.size() / 2; i++) {
-            if (!cc.equalChars(d.removeFirst(),d.removeLast())) {
+            if (!cc.equalChars(d.removeFirst(), d.removeLast())) {
                 return false;
             }
         }

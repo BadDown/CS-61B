@@ -21,17 +21,17 @@ public class TestPalindrome {
         boolean d = palindrome.isPalindrome("abcdefg");
         boolean e = palindrome.isPalindrome("abba");
         boolean y = palindrome.isPalindrome("");
-        assertEquals(false,d);
-        assertEquals(true,e);
-        assertEquals(true,y);
+        assertEquals(false, d);
+        assertEquals(true, e);
+        assertEquals(true, y);
 
     }
 
     @Test
     public void testIsOffByOnePalindrome() {
         CharacterComparator c = new OffByOne();
-        assertTrue(palindrome.isPalindrome("aemnfb",c));
-        assertTrue(palindrome.isPalindrome("aemanfb",c));
-        assertFalse(palindrome.isPalindrome("abca",c));
+        assertTrue(palindrome.isPalindrome("aemnfb", c));
+        assertTrue(palindrome.isPalindrome("aemanfb", c));
+        assertFalse(palindrome.isPalindrome("abca", c));
     }
 }
